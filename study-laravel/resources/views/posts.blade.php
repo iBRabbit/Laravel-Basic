@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
-</head>
+@extends('layouts.main')
 
-<body>
-    
-</body>
-</html>
+{{-- @dd($posts) => dump and die kek var_dump  --}}
+
+@section('container')
+
+    @foreach ($posts as $post)
+        <article class = "mb-5">
+            <h3>
+                <a href="posts/{{ $post["slug"] }}"> {{ $post["title"] }}</a>
+            </h3>
+            <h4> {{ $post["author"] }}</h4>
+            <p> {{ $post["body"] }}</p>
+        </article>
+    @endforeach
+
+@endsection
